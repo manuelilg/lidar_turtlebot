@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+    - Base      : kobuki
+    - Stacks    : hexagons
+    - 3d Sensor : kinect
+-->    
+<robot name="turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="ray_gpu" default="true"/> 
+
+  <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_common_library.urdf.xacro" />
+  <xacro:include filename="$(find kobuki_description)/urdf/kobuki.urdf.xacro" />
+  <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+  
+  <kobuki/>
+  <VLP-16 parent="base_link" gpu="$(arg ray_gpu)" >
+    <origin xyz="0 0 ${0.0782 + 0.127}" rpy="0 0 0" />
+  </VLP-16>
+  <joint name="custom_stack_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="custom_stack"/>
+    <origin xyz="0 0 ${0.0782 + 0.127/2}" rpy="0 0 0"/>
+  </joint>
+  <link name="custom_stack">
+    <visual>
+      <geometry>
+        <box size="0.12 0.145 0.127"/>
+      </geometry>
+    </visual>
+    <collsion>
+      <geometry>
+        <box size="0.12 0.145 0.127"/>
+      </geometry>
+    </collsion>
+  </link>
+</robot>
+

@@ -1,7 +1,7 @@
 <launch>
 
     <arg name="urdf_file"
-         default="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/kobuki_hexagons_kinect.urdf.xacro'"/>
+         default="$(find xacro)/xacro.py '$(find lidar_turtlebot)/robots/kobuki_custom_velodyne-vlp16.urdf.xacro'"/>
     <param name="robot_description" command="$(arg urdf_file)"/>
 
     <!-- important generally, but specifically utilised by the current app manager -->
@@ -12,7 +12,7 @@
         <param name="publish_frequency" type="double" value="5.0"/>
     </node>
     <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator">
-        <rosparam command="load" file="$(find turtlebot_bringup)/param/$(arg base)/diagnostics.yaml"/>
+        <rosparam command="load" file="$(find turtlebot_bringup)/param/kobuki/diagnostics.yaml"/>
     </node>
 
     <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
@@ -43,5 +43,9 @@
 
     <include file="$(find turtlebot_navigation)/launch/includes/velocity_smoother.launch.xml"/>
     <include file="$(find turtlebot_navigation)/launch/includes/safety_controller.launch.xml"/>
+
+    <include file="$(find razor_imu_9dof)/launch/razor-pub.launch">
+        <arg name="razor_config_file" value="$(find lidar_turtlebot)/config/my_razor.yaml"/>
+    </include>
 
 </launch>
