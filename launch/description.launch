@@ -1,0 +1,11 @@
+<launch>
+    <arg name="urdf_file"
+         default="$(find xacro)/xacro.py '$(find lidar_turtlebot)/robots/kobuki_custom_velodyne-vlp16.urdf.xacro'"/>
+    <param name="robot_description" command="$(arg urdf_file)"/>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="5.0"/>
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_rviz_launchers)/rviz/model.rviz"/>
+</launch>

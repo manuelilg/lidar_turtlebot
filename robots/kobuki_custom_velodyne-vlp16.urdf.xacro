@@ -13,24 +13,26 @@
   
   <kobuki/>
   <VLP-16 parent="base_link" gpu="$(arg ray_gpu)" >
-    <origin xyz="0 0 ${0.0782 + 0.127}" rpy="0 0 0" />
+    <origin xyz="0 0 ${0.088 + 0.126}" rpy="0 0 0" />
   </VLP-16>
   <joint name="custom_stack_joint" type="fixed">
     <parent link="base_link"/>
     <child link="custom_stack"/>
-    <origin xyz="0 0 ${0.0782 + 0.127/2}" rpy="0 0 0"/>
+    <origin xyz="0 0 ${0.088 + 0.126/2}" rpy="0 0 0"/>
   </joint>
   <link name="custom_stack">
     <visual>
+      <origin xyz="0 0 -${0.126/2}" rpy="0 0 -1.570796"/>
       <geometry>
-        <box size="0.12 0.145 0.127"/>
+        <mesh filename="package://lidar_turtlebot/meshes/custom_stack.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collsion>
       <geometry>
-        <box size="0.12 0.145 0.127"/>
+        <box size="0.12 0.146 0.126"/>
       </geometry>
     </collsion>
   </link>
+
 </robot>
 
