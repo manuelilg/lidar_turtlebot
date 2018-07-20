@@ -34,5 +34,46 @@
     </collsion>
   </link>
 
+  <joint name="gps_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="gps"/>
+    <origin xyz="0 0.113 ${0.088 + 0.092 + 0.0195/2}" rpy="0 0 0"/>
+  </joint>
+  <link name="gps">
+    <visual>
+      <origin xyz="0 0 -${0.0195/2}" rpy="0 0 3.14159"/>
+      <geometry>
+        <mesh filename="package://lidar_turtlebot/meshes/GPS_garmin.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collsion>
+      <geometry>
+        <cylinder radius="0.03" length="0.01"/>
+      </geometry>
+    </collsion>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu"/>
+    <origin xyz="0 0 ${0.088 + 0.1121}" rpy="0 0 0"/>
+  </joint>
+  <link name="imu">
+    <visual>
+      <origin xyz="0 0  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>
+<!--      <origin xyz="${0.03175/2 + 0.0239 + 0.0015} ${0.03175/2 + 0.015 + 0.0015}  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>-->
+      <geometry>
+        <box size="0.03175 0.03175 0.0016"/>
+        <!-- <mesh filename="package://lidar_turtlebot/meshes/sparkfun-9dof-razor-imu.stl" scale="0.001 0.001 0.001"/>-->
+      </geometry>
+    </visual>
+    <collsion>
+      <origin xyz="0 0  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.03175 0.03175 0.0016"/>
+      </geometry>
+    </collsion>
+  </link>
+
 </robot>
 
