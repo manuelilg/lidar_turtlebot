@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find lidar_turtlebot)/launch/turtlebot_bringup.launch"/>
+  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+  <!-- <arg name="subscans" value="true"/> -->
+</launch>
