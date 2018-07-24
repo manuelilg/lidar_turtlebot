@@ -55,10 +55,10 @@
 
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="imu"/>
+    <child link="base_imu_link"/>
     <origin xyz="0 0 ${0.088 + 0.1121}" rpy="0 0 0"/>
   </joint>
-  <link name="imu">
+  <link name="base_imu_link">
     <visual>
       <origin xyz="0 0  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>
 <!--      <origin xyz="${0.03175/2 + 0.0239 + 0.0015} ${0.03175/2 + 0.015 + 0.0015}  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>-->
