@@ -1,0 +1,8 @@
+<launch>
+  <node name="velodyne_gps_driver" pkg="velodyne_gps_imu" type="gpsimu_driver"/>
+  <node name="nmea_to_navsat" pkg="nmea_navsat_driver" type="nmea_topic_driver" ns="gps">
+    <remap from="nmea_sentence" to="/velodyne_gps_driver/nmea_sentence"/>
+    <param name="useRMC" value="true"/>
+    <param name="time_ref_source" value="gps"/>
+  </node>
+</launch>
