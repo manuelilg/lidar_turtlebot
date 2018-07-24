@@ -54,7 +54,8 @@
   <exec_depend>turtlebot_navigation</exec_depend>
   <exec_depend>kobuki</exec_depend>
   <exec_depend>razor_imu_9dof</exec_depend>
-  <exec_depend>velodyne</exec_depend>
+  <exec_depend>velodyne_pointcloud</exec_depend>
+  <exec_depend>velodyne_gps_imu</exec_depend>
   <exec_depend>velodyne_description</exec_depend>
   <exec_depend>rplidar_ros</exec_depend>
 
