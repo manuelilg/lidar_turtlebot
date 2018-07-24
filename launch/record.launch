@@ -1,0 +1,4 @@
+<launch>
+    <arg name="bag_dir" default="/ros-bags/"/>
+    <node name="ros_bag" pkg="rosbag" type="record" args="-o $(arg bag_dir) /clock /odom /scan /tf_static /tf /imu --lz4"/>
+</launch>
