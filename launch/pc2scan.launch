@@ -1,0 +1,13 @@
+<launch>
+  <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+    <remap from="cloud_in" to="/velodyne_points"/>
+    <remap from="scan" to="/scan_velodyne"/>
+    <param name="min_height" value="-0.2"/>
+    <param name="max_height" value="1.0"/>
+    <param name="scan_time" value="0.05"/>
+    <param name="range_max" value="10"/>
+    <param name="angle_max" value="3.14159"/>
+    <param name="angle_min" value="-3.14159"/>
+  </node>
+</launch>
+
