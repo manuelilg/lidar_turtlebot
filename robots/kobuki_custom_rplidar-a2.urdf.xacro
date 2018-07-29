@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+    - Base      : kobuki
+    - Stacks    : hexagons
+    - 3d Sensor : kinect
+-->    
+<robot name="turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="ray_gpu" default="true"/> 
+
+  <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_common_library.urdf.xacro" />
+  <xacro:include filename="$(find kobuki_description)/urdf/kobuki.urdf.xacro" />
+
+  <kobuki/>
+  <joint name="rplidar_base_scan_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="rplidar"/>
+    <origin xyz="0 0 ${0.088 + 0.126 + 0.0377}" rpy="0 0 0" />
+  </joint>
+  <link name="rplidar">
+    <visual>
+      <origin xyz="-0.007 -0.075 -0.038" rpy="${pi/2} 0 ${pi}"/>
+      <geometry>
+        <mesh filename="package://lidar_turtlebot/meshes/rplidar-a2m4-r1.stl"/>
+      </geometry>
+    </visual>
+    <collsion>
+      <origin xyz="0 0 ${0.0408 / 2 -0.0306}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${0.0757 / 2}" length="0.0408"/>
+      </geometry>
+    </collsion>
+  </link>
+
+  <joint name="custom_stack_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="custom_stack"/>
+    <origin xyz="0 0 ${0.088 + 0.126/2}" rpy="0 0 0"/>
+  </joint>
+  <link name="custom_stack">
+    <visual>
+      <origin xyz="0 0 -${0.126/2}" rpy="0 0 -1.570796"/>
+      <geometry>
+        <mesh filename="package://lidar_turtlebot/meshes/custom_stack.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collsion>
+      <geometry>
+        <box size="0.12 0.146 0.126"/>
+      </geometry>
+    </collsion>
+  </link>
+
+  <joint name="gps_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="gps"/>
+    <origin xyz="0 0.113 ${0.088 + 0.092 + 0.0195/2}" rpy="0 0 0"/>
+  </joint>
+  <link name="gps">
+    <visual>
+      <origin xyz="0 0 -${0.0195/2}" rpy="0 0 3.14159"/>
+      <geometry>
+        <mesh filename="package://lidar_turtlebot/meshes/GPS_garmin.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collsion>
+      <geometry>
+        <cylinder radius="0.03" length="0.01"/>
+      </geometry>
+    </collsion>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_imu_link"/>
+    <origin xyz="0 0 ${0.088 + 0.1121}" rpy="0 0 0"/>
+  </joint>
+  <link name="base_imu_link">
+    <visual>
+      <origin xyz="0 0  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>
+<!--      <origin xyz="${0.03175/2 + 0.0239 + 0.0015} ${0.03175/2 + 0.015 + 0.0015}  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>-->
+      <geometry>
+        <box size="0.03175 0.03175 0.0016"/>
+        <!-- <mesh filename="package://lidar_turtlebot/meshes/sparkfun-9dof-razor-imu.stl" scale="0.001 0.001 0.001"/>-->
+      </geometry>
+    </visual>
+    <collsion>
+      <origin xyz="0 0  -${0.0016/2 + 0.0005}" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.03175 0.03175 0.0016"/>
+      </geometry>
+    </collsion>
+  </link>
+
+</robot>
+
