@@ -50,6 +50,7 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <exec_depend>lidar_turtlebot_description</exec_depend>
   <exec_depend>turtlebot_bringup</exec_depend>
   <exec_depend>turtlebot_teleop</exec_depend>
   <exec_depend>kobuki</exec_depend>
@@ -57,6 +58,7 @@
   <exec_depend>velodyne_pointcloud</exec_depend>
   <exec_depend>velodyne_gps_imu</exec_depend>
   <exec_depend>rplidar_ros</exec_depend>
+  <exec_depend>nmea_navsat_driver</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
