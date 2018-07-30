@@ -1,5 +1,10 @@
 <launch>
     <arg name="rviz_config" default="$(find lidar_turtlebot_rviz)/config/lidar_turtlebot.rviz"/>
 
+    <include file="$(find velodyne_pointcloud)/accumulate_pointcloud.launch">
+        <arg name="out_cloud" value="velodyne_points_accumulated_desktop"/>
+        <arg name="use_nodelet" value="false"/>
+    </include>
+
     <node name="rviz" pkg="rviz" type="rviz" args=""/>
 </launch>
