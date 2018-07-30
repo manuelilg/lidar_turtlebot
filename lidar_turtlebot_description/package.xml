@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>lidar_turtlebot</name>
+  <name>lidar_turtlebot_description</name>
   <version>0.0.0</version>
-  <description>The lidar_turtlebot package</description>
+  <description>The lidar_turtlebot_description package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/lidar_turtlebot</url> -->
+  <!-- <url type="website">http://wiki.ros.org/lidar_turtlebot_description</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -50,14 +50,9 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
-  <exec_depend>turtlebot</exec_depend>
-  <exec_depend>turtlebot_navigation</exec_depend>
-  <exec_depend>kobuki</exec_depend>
-  <exec_depend>razor_imu_9dof</exec_depend>
-  <exec_depend>velodyne_pointcloud</exec_depend>
-  <exec_depend>velodyne_gps_imu</exec_depend>
+  <exec_depend>turtlebot_description</exec_depend>
+  <exec_depend>kobuki_description</exec_depend>
   <exec_depend>velodyne_description</exec_depend>
-  <exec_depend>rplidar_ros</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

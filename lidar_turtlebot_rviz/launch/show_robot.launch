@@ -1,0 +1,5 @@
+<launch>
+    <arg name="rviz_config" default="$(find lidar_turtlebot_rviz)/config/lidar_turtlebot.rviz"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args=""/>
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+    <arg name="configuration_directory" default="$(find cartographer_turtlebot)/configuration_files"/>
+    <arg name="pipeline-file" default="assets_writer_ros_map.lua"/>
+
+    <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
+        type="cartographer_assets_writer" args="
+            -configuration_directory $(arg configuration_directory)
+            -configuration_basename $(arg pipeline-file)
+            -bag_filenames $(arg bag_filenames)
+            -pose_graph_filename $(arg bag_filenames).pbstream"
+        output="screen">
+    </node>
+
+</launch>
