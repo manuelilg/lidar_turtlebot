@@ -8,5 +8,6 @@ sudo docker run -it \
   -v "/tmp/docker_share/lidar_turtlebot:/tmp/docker_share" \
   --privileged \
   -v /dev:/dev \
+  --device=/dev/dri:/dev/dri
   --network host \
   manuelilg/lidar_turtlebot:latest
