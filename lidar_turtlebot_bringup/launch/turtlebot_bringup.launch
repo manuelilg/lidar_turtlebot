@@ -1,8 +1,8 @@
 <launch>
 
-    <arg name="urdf_file"
-         default="$(find xacro)/xacro.py '$(find lidar_turtlebot)/robots/kobuki_custom_velodyne-vlp16.urdf.xacro'"/>
-    <param name="robot_description" command="$(arg urdf_file)"/>
+    <include file="$(find lidar_turtlebot_description)/launch/description.launch">
+        <arg name="use_vlp16" value="true"/>
+    </include>
 
     <!-- important generally, but specifically utilised by the current app manager -->
     <param name="robot/name" value="$(optenv ROBOT turtlebot)"/>
