@@ -5,8 +5,8 @@
          default="NO FILE PROVIDED!!!: set arg:use_vlp16 or arg:use_a2 to true or provide a urdf-file to arg:urdf_file"/>
     <arg name="rviz" default="false"/>
 
-    <arg if="$(arg use_vlp16)" name="eval_urdf_file" value="$(find lidar_turtlebot)/robots/kobuki_custom_velodyne-vlp16.urdf.xacro"/>
-    <arg if="$(arg use_a2)" name="eval_urdf_file" value="$(find lidar_turtlebot)/robots/kobuki_custom_rplidar-a2.urdf.xacro"/>
+    <arg if="$(arg use_vlp16)" name="eval_urdf_file" value="$(find lidar_turtlebot_description)/robots/kobuki_custom_velodyne-vlp16.urdf.xacro"/>
+    <arg if="$(arg use_a2)" name="eval_urdf_file" value="$(find lidar_turtlebot_description)/robots/kobuki_custom_rplidar-a2.urdf.xacro"/>
     <arg unless="$(eval arg('use_vlp16') or arg('use_a2'))" name="eval_urdf_file" value="$(arg urdf_file)"/>
 
     <param name="robot_description" command="$(find xacro)/xacro.py '$(arg eval_urdf_file)'"/>
