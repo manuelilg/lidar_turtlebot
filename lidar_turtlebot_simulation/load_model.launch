@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find lidar_turtlebot_description)/launch/description.launch">
+        <arg name="use_vlp16" value="true"/>
+    </include>
+
+    <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
+        args="-x 0 -y 0 -z 0.3 -Y 0 -unpause -urdf -param robot_description -model mobile_base"/>
+</launch>

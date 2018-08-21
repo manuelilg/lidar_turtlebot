@@ -6,7 +6,7 @@
   <arg name="scan_out" default="/scan_navigation"/>
 
   <arg name="min_height" default="-0.2"/>
-  <arg name="max_height" default="1.0"/>
+  <arg name="max_height" default="0.5"/>
   <arg name="scan_time" default="0.05"/>
   <arg name="range_max" default="10"/>
   <arg name="angle_max" default="3.14159"/>

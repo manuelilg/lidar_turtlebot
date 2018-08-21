@@ -5,7 +5,7 @@
     - 3d Sensor : kinect
 -->    
 <robot name="turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:arg name="ray_gpu" default="true"/> 
+  <xacro:arg name="ray_gpu" default="false"/>
 
   <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_common_library.urdf.xacro" />
   <xacro:include filename="$(find kobuki_description)/urdf/kobuki.urdf.xacro" />
