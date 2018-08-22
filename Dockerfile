@@ -25,5 +25,5 @@ RUN apt-get update && \
 
 WORKDIR /
 
-COPY ./ros_entrypoint.sh /
+COPY ./scripts/ros_entrypoint.sh /
 
