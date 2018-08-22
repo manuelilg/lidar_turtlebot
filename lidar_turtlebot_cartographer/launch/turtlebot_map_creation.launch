@@ -1,5 +1,5 @@
 <launch>
-    <arg name="configuration_directory" default="$(find cartographer_turtlebot)/configuration_files"/>
+    <arg name="configuration_directory" default="$(find lidar_turtlebot_cartographer)/configuration_files"/>
     <arg name="pipeline-file" default="assets_writer_ros_map.lua"/>
 
     <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"

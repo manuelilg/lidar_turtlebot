@@ -1,6 +1,6 @@
 <launch>
     <arg name="bag_filenames"/>
-    <arg name="configuration_file" default="turtlebot_vlp16_pointcloud_2d.lua"/>
+    <arg name="configuration_file" default="turtlebot_vlp16_scan_2d.lua"/>
     <arg name="no_rviz" default="true"/>
 
     <group unless="$(arg no_rviz)">
@@ -13,7 +13,7 @@
     <node name="cartographer_offline_node" pkg="cartographer_ros"
           required="$(arg no_rviz)"
           type="cartographer_offline_node" args="
-              -configuration_directory $(find cartographer_turtlebot)/configuration_files
+              -configuration_directory $(find lidar_turtlebot_cartographer)/configuration_files
               -configuration_basenames $(arg configuration_file)
               -bag_filenames $(arg bag_filenames)"
           output="screen">

@@ -1,7 +1,10 @@
 <launch>
     <arg name="pbstream_file" default="some_file.pbstream"/>
-    <arg name="configuration_file" default="turtlebot_vlp16_pointcloud_2d_localisation.lua"/>
-    <!--<arg name="initial_pose" default="translation={0.0,0.0,0.0},rotation={0.0,0.0,0.0}"/>-->
+    <arg name="configuration_file" default="turtlebot_vlp16_scan_2d_localisation.lua"/>
+    <arg name="initial_x" default="0.0"/>
+    <arg name="initial_y" default="0.0"/>
+    <arg name="initial_a" default="0.0"/>
+    <arg name="initial_pose" default="translation={$(arg initial_x), $(arg initial_y),0.0},rotation={0.0,0.0, $(arg initial_a)}"/>
 
     <node name="cartographer_node" pkg="cartographer_ros"
         type="cartographer_node" args="
@@ -14,9 +17,11 @@
 
     <node name="cartographer_start_trajectory" pkg="cartographer_ros" type="cartographer_start_trajectory"
           args="-configuration_directory $(find lidar_turtlebot_cartographer)/configuration_files
-                -configuration_basename $(arg configuration_file)"
+                -configuration_basename $(arg configuration_file)
+                -initial_pose='{ to_trajectory_id=0, relative_pose={$(arg initial_pose) }}'"
           output="screen">
     </node>
+
                 <!-- -initial_pose='{ to_trajectory_id=0, relative_pose={translation={0.0,0.0,0.0},rotation={0.0,0.0,0.0} }}'"-->
 
 </launch>
