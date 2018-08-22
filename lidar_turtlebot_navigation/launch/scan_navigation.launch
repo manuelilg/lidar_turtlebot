@@ -1,0 +1,12 @@
+<launch>
+    <include file="$(find velodyne_pointcloud)/launch/accumulate_pointcloud.launch">
+        <arg name="use_nodelet" value="true"/>
+        <arg name="out_cloud" value="/velodyne_points_accumulated"/>
+    </include>
+    <include file="$(find lidar_turtlebot_navigation)/launch/pointcloud_to_navigation_laserscan.launch">
+        <arg name="use_nodelet" value="true"/>
+        <arg name="cloud_in" value="/velodyne_points_accumulated"/>
+        <arg name="scan_out" value="/scan_navigation"/>
+    </include>
+
+</launch>
