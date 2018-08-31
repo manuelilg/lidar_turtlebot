@@ -16,6 +16,11 @@ options = {
   tracking_frame = "base_link",
   pipeline = {
     {
+      action = "z_pos_filter",
+      min_z = 0.1,
+      max_z = 2.,
+    },
+    {
       action = "min_max_range_filter",
       min_range = 1.,
       max_range = 60.,
