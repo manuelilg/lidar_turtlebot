@@ -40,9 +40,9 @@
 
     <include file="$(find turtlebot_navigation)/launch/includes/velocity_smoother.launch.xml"/>
     <include file="$(find turtlebot_navigation)/launch/includes/safety_controller.launch.xml"/>
-
+<!--
     <include file="$(find razor_imu_9dof)/launch/razor-pub.launch">
         <arg name="razor_config_file" value="$(find lidar_turtlebot_bringup)/config/my_razor.yaml"/>
     </include>
-
+-->
 </launch>
